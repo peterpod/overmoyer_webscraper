@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="The Informants">
+        <meta name="keywords" content="Overmoyer, bikes, bicycle, information systems">
+        <meta name="description" content="Analysis of Overmoyer Competitors">
+        
+        <style type="text/css">
+        
+        body {
+            margin: 0.5in 0.5in 0.5in 0.5in;
+            width: 8.5in;
+        }
+        
+        h1 {
+            font-family: Helvetica, sans-serif;
+            font-size: 48px;
+            font-weight: normal;
+            text-align: center;
+            /*background-color: orange;*/
+        }
+        
+        h2 {
+            font-family: Helvetica, sans-serif;
+            font-size: 32px;
+            font-weight: normal;
+        }
+        
+        h3 {
+            font-family: "Times New Roman", serif;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            top: -16px;
+        }
+        
+        h4 {
+            font-family: Helvetica, sans-serif;
+            font-size: 24px;
+            font-weight: normal;
+            text-align: center;
+            position: relative;
+            top: -30px;
+        }
+        
+        p {
+            font-family: "Times New Roman", serif;
+            font-size: 16px;
+            margin-top: -16px;
+            position: relative;
+            top: -16px;
+        }
+            
+        </style>
+        
+        <title>Analysis of Overmoyer Competitors</title>
+    </head>
+    
+    <body>
+        <h1>Analysis of Competitors</h1>
+        <% t = Time.new %>
+        <h4>Overmoyer Bicycles, Inc. — <%= t.month.to_s + "/" + t.day.to_s + "/" + t.year.to_s %></h4>
+        
+        <% @content.each do |competitor| %>
+            <% competitor.each do |key, value| %>
+                <% if key == :name %>
+                    <h2><%= value %></h2>
+                <% elsif key == :stock %>
+                    <h3>Stock Price:</h3>
+                    <p>$<%= value %> per share</p>
+                <% elsif key == :mission %>
+                    <h3>Mission:</h3>
+                    <p><%= value %></p>
+                <% elsif key == :news %>
+                    <h3>Recent News:</h3>
+                    <p><%= value %></p>
+                <% elsif key == :products %>
+                    <h3>Recent Products:</h3>
+                    <p><%= value %></p>
+                <% else %>
+                    <h3>Other Notes:</h3>
+                    <p><%= value %></p>
+                <% end %>
+            <% end %>
+        <% end %>
+        
+    </body>
+    
+</html>
